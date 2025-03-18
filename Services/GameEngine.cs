@@ -9,7 +9,7 @@ namespace W5_assignment_template.Services
         private readonly IEntity _goblin;
         private readonly IEntity _ghost;
 
-        public GameEngine(IEntity character, IEntity goblin, IEntity ghost)
+        public GameEngine(IEntity character, IFearsome goblin, IFearful ghost)
         {
             _character = character;
             _goblin = goblin;
@@ -30,7 +30,9 @@ namespace W5_assignment_template.Services
 
             _ghost.Move();
             _ghost.Attack(_character);
-            ((Ghost) _ghost).Fly();
+            if (_ghost is IFlyable flyableEntity) {
+                ((Ghost) _ghost).Fly();
+            }
         }
     }
 }

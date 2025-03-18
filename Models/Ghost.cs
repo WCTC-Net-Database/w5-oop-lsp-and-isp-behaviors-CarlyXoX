@@ -2,9 +2,11 @@
 
 namespace W5_assignment_template.Models
 {
-    public class Ghost : IEntity, IFlyable
+    public class Ghost : IEntity, IFearful, IFlyable
     {
         public string Name { get; set; }
+        public int AttackDmg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int HP { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public void Attack(IEntity target)
         {
@@ -19,6 +21,11 @@ namespace W5_assignment_template.Models
         public void Fly()
         {
             Console.WriteLine($"{Name} flies rapidly through the air.");
+        }
+
+        public void Defend(IEntity target)
+        {
+            throw new NotImplementedException();
         }
     }
 }
